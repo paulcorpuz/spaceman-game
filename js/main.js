@@ -7,7 +7,7 @@ const maxGuessCount = 5;
 let activeWord;
 let correctLetters;
 let wrongGuessCount;
-let clickCount;
+let clickCountDown;
 let lettersRemaining;
 let winner;
 
@@ -18,14 +18,13 @@ const availableGuessElement = document.querySelector('.guess');
 const keyboardButtonElements = document.querySelector('.keyboard');
 const playAgainButton = document.getElementById('gameOver');
 const topResetButton = document.getElementById('resetti');
-// const keyboardKeys = document.getElementById('alphabet');
+
 
 
 /*----- event listeners -----*/
 keyboardButtonElements.addEventListener('click', handleLetterClick);
 playAgainButton.addEventListener('click', resetGame);
 topResetButton.addEventListener('click', resetGame1);
-// keyboardKeys.addEventListener('click', changeColor);
 
 
 
@@ -38,15 +37,14 @@ function init() {
 
     let {answerArray} = createAnswerArray(activeWord);
     correctLetters = answerArray;
-    
     wrongGuessCount = 0;
-    clickCount = maxGuessCount;
+    clickCountDown = maxGuessCount;
     winner = null;
     render();
 }
 
 
-// Select a random secret word function
+// Select a random secret word 
 function getRandomWord(secretWords) {
     return secretWords[Math.floor(Math.random() * secretWords.length)];
 }
@@ -63,7 +61,7 @@ function createAnswerArray(selectedSecret) {
 }
 
 
-// Render the game state -- update display
+// Render the game state -- update the elements to show the following
 function render() {
     messageBoxElement.textContent = correctLetters.join(" ");
     availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
@@ -74,10 +72,11 @@ function render() {
 
 
 // Handle keyboard / letter click 
+// DOM matches method https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
 
 function handleLetterClick(buttonPress) {
     if (buttonPress.target.matches('button.alphabet')) {
-        clickCount--; //decrease clickCount by 1 per button click
+        clickCountDown--; //decrease clickCountDown by 1 per button click
         const letter = buttonPress.target.textContent.toLowerCase();
         if (activeWord.includes(letter)) {
             for (let i = 0; i < activeWord.length; i++) {
@@ -87,11 +86,11 @@ function handleLetterClick(buttonPress) {
                 }
             }
         } else {
-            wrongGuessCount++; //increase clickCount by 1 per button click
+            wrongGuessCount++; //increase wrongGuessCount by 1 per button click
         }
-        console.log(lettersRemaining) // check
-        console.log(clickCount) // check
-        console.log(wrongGuessCount)
+        console.log('Letters Remaining: ' + lettersRemaining) // check
+        console.log('Click Count: ' + clickCountDown) // check
+        console.log('Wrong Guess Count: ' + wrongGuessCount) // check
         render();
     }
 }
@@ -104,7 +103,7 @@ function handleLetterClick(buttonPress) {
 
 
 
-// Check win conditions
+// Check win conditions -- winner true or false
 function checkWinner() {
     if (lettersRemaining === 0 && wrongGuessCount >= 0) { //not triggering winning statement 
         winner = true;
@@ -123,19 +122,22 @@ function renderGameOverMessage() {
     }
 }
 
-// Render play again button ternary expresion from connect 4
+// Render play again button, ternary expression from connect 4 lesson
 function renderPlayAgain() {
     playAgainButton.style.visibility = winner || wrongGuessCount >= maxGuessCount ? 'visible' : 'hidden';
 }
 
-// Reset the game
+// play again after win condition rendered -- reset Game
 function resetGame() {
     init();
 }
 
+// top reset game button
 function resetGame1() {
     init();
 }
+
+
 
 // Initialize the game
 init();
@@ -153,7 +155,6 @@ init();
 /* Notes 
 
 original pseudocode
-
 
 While the secret word has not been guessed {
     Show the player their current progress
@@ -191,8 +192,6 @@ add left over availables guess to score
 
 ==========================
 Game plan for functions
-
-
 
 Initialize the game, 
 Init()
