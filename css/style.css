@@ -10,6 +10,8 @@
         "spaceman keyboard keyboard"
         "spaceman keyboard keyboard"
         "guess footer footer";
+  justify-content: center;
+  align-content: center;
 }
 
 
@@ -24,7 +26,6 @@ img {
 /* all the grids */
 .item {
   border: 2px solid #333;
-  justify-content: center;
   text-align: center;
   font-size: 35px;
 }
@@ -34,11 +35,12 @@ img {
 /* each grid section*/
 .title {
   grid-area: title;
+  
 }
 .reset {
   grid-area: reset;
 }
-.resetti {
+#resetti {
 background-color: #36b98e;
 cursor: pointer;
 text-align: center;

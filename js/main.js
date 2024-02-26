@@ -1,26 +1,31 @@
 /*----- constants -----*/
-const secretWords = ['eevee', 'pikachu'];
-const maxGuessCount = 8;
+const secretWords = ['pikachu','eevee'];
+const maxGuessCount = 5;
 
 
 /*----- state variables -----*/
 let activeWord;
 let correctLetters;
 let wrongGuessCount;
-let remainingGuesses; //confusing
+let clickCount;
 let lettersRemaining;
 let winner;
-let alreadyGuessed;
+
 
 /*----- cached elements  -----*/
 const messageBoxElement = document.querySelector('.playing');
 const availableGuessElement = document.querySelector('.guess');
 const keyboardButtonElements = document.querySelector('.keyboard');
 const playAgainButton = document.getElementById('gameOver');
+const topResetButton = document.getElementById('resetti');
+// const keyboardKeys = document.getElementById('alphabet');
+
 
 /*----- event listeners -----*/
 keyboardButtonElements.addEventListener('click', handleLetterClick);
 playAgainButton.addEventListener('click', resetGame);
+topResetButton.addEventListener('click', resetGame1);
+// keyboardKeys.addEventListener('click', changeColor);
 
 
 
@@ -31,16 +36,14 @@ function init() {
     //select a random secret word from the array
     activeWord = getRandomWord(secretWords);
 
-    let { answerArray, lettersRemaining } = createAnswerArray(activeWord);
+    let {answerArray} = createAnswerArray(activeWord);
     correctLetters = answerArray;
     
     wrongGuessCount = 0;
-    remainingGuesses = maxGuessCount;
+    clickCount = maxGuessCount;
     winner = null;
     render();
 }
-
-
 
 
 // Select a random secret word function
@@ -70,17 +73,12 @@ function render() {
 }
 
 
+// Handle keyboard / letter click 
 
-
-
-
-
-// Handle keyboard / letter click - seperate out? as two functions?
-
-function handleLetterClick(event) {
-    if (event.target.matches('button.alphabet')) {
-        remainingGuesses--;
-        const letter = event.target.textContent.toLowerCase(); 
+function handleLetterClick(buttonPress) {
+    if (buttonPress.target.matches('button.alphabet')) {
+        clickCount--; //decrease clickCount by 1 per button click
+        const letter = buttonPress.target.textContent.toLowerCase();
         if (activeWord.includes(letter)) {
             for (let i = 0; i < activeWord.length; i++) {
                 if (activeWord[i] === letter && correctLetters[i] === '_') {
@@ -89,10 +87,11 @@ function handleLetterClick(event) {
                 }
             }
         } else {
-            wrongGuessCount++;
+            wrongGuessCount++; //increase clickCount by 1 per button click
         }
         console.log(lettersRemaining) // check
-        console.log(remainingGuesses) // check
+        console.log(clickCount) // check
+        console.log(wrongGuessCount)
         render();
     }
 }
@@ -101,10 +100,15 @@ function handleLetterClick(event) {
 
 
 
+
+
+
+
 // Check win conditions
 function checkWinner() {
-    if (lettersRemaining === 0 && remainingGuesses > 0) {
+    if (lettersRemaining === 0 && wrongGuessCount >= 0) { //not triggering winning statement 
         winner = true;
+
     } else {
         winner = false;
     }
@@ -112,7 +116,7 @@ function checkWinner() {
 
 // Render game over message
 function renderGameOverMessage() {
-    if (winner) {
+    if (winner === true) {
         messageBoxElement.innerText = 'SHANTAY YOU STAY';
     } else if (wrongGuessCount >= maxGuessCount) {
         messageBoxElement.innerText = 'SASHAY AWAY';
@@ -126,6 +130,10 @@ function renderPlayAgain() {
 
 // Reset the game
 function resetGame() {
+    init();
+}
+
+function resetGame1() {
     init();
 }
 
