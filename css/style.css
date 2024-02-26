@@ -1,0 +1,87 @@
+.container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+
+  grid-template-areas:
+        "title title reset"
+        "spaceman playing playing"
+        "spaceman keyboard keyboard"
+        "spaceman keyboard keyboard"
+        "guess footer footer";
+}
+
+
+/* spaceman image */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* all the grids */
+/* all the grids */
+.item {
+  border: 2px solid #333;
+  justify-content: center;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+/* each grid section*/
+/* each grid section*/
+.title {
+  grid-area: title;
+}
+.reset {
+  grid-area: reset;
+}
+.resetti {
+background-color: #36b98e;
+cursor: pointer;
+text-align: center;
+}
+.spaceman {
+  grid-area: spaceman;
+}
+.playing {
+  grid-area: playing;
+} 
+.keyboard {
+grid-area: keyboard;
+} 
+.guess {
+grid-area: guess;
+
+}
+.footer {
+grid-area: footer;
+}
+#gameOver {
+background-color: #36b98e;
+cursor: pointer;
+text-align: center;
+}  
+
+
+/* keyboard buttons */
+/* keyboard buttons */
+.alphabet {
+width: 40px;
+height: 40px;
+margin: 5px;
+font-size: 20px;
+background-color: #e9d774;
+cursor: pointer;
+justify-content: center;
+text-align: center;
+}
+
+
+
+
+/* ice box make it responsive?
+reference to page layout https://www.digitalocean.com/community/tutorials/css-css-grid-layout-fr-unit
+*/
