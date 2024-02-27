@@ -13,14 +13,14 @@
 /* style for container class */
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr 1fr 1fr;
   grid-template-areas:
-    "title title title reset"
-    "spaceman playing playing playing"
-    "spaceman keyboard keyboard keyboard"
-    "spaceman keyboard  keyboard keyboard"
-    "guess footer footer footer";
+    "title title title title reset" 
+    "spaceman playing playing playing instructions"
+    "spaceman keyboard keyboard keyboard instructions"
+    "spaceman keyboard  keyboard keyboard instructions"
+    "guess footer footer footer footer";
   text-align: center;
   padding: 0px;
 }
@@ -76,11 +76,9 @@ img {
   grid-area: playing;
   font-weight: bold;
 }
-
 .keyboard {
   grid-area: keyboard;
 }
-
 .alphabet {
   width: 40px;
   height: 40px;
@@ -100,11 +98,9 @@ img {
   grid-area: guess;
   font-size: 25px;
 }
-
 .footer {
   grid-area: footer;
 }
-
 #gameOver {
   background-color: #36b98e;
   cursor: pointer;
@@ -113,6 +109,18 @@ img {
   border-radius: 15px;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+/* grid COLUMN */
+.instructions {
+  grid-area: instructions;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.instructions> p{
+  margin: 0px;
 }
 
 

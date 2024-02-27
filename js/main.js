@@ -22,12 +22,10 @@ const topResetButton = document.getElementById('resetti');
 const highScore = document.getElementById('score');
 
 
-
 /*----- event listeners -----*/
 keyboardButtonElements.addEventListener('click', handleLetterClick);
 playAgainButton.addEventListener('click', resetGame);
 topResetButton.addEventListener('click', resetGame);
-
 
 
 /*----- functions -----*/
