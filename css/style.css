@@ -14,13 +14,13 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
   grid-template-areas:
     "title title title title reset" 
     "spaceman playing playing playing instructions"
     "spaceman keyboard keyboard keyboard instructions"
     "spaceman keyboard  keyboard keyboard instructions"
-    "guess footer footer footer footer";
+    "guess footer footer footer instructions";
   text-align: center;
   padding: 0px;
 }
@@ -121,7 +121,17 @@ img {
 }
 .instructions> p{
   margin: 0px;
+  text-align: center;
 }
 
-
+ul {
+  text-align: center;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+li {
+  font-size: 20px;
+  text-align: center;
+}
 /* reference to page layout https://www.digitalocean.com/community/tutorials/css-css-grid-layout-fr-unit */

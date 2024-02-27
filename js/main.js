@@ -29,12 +29,10 @@ topResetButton.addEventListener('click', resetGame);
 
 
 /*----- functions -----*/
-
-// Game initialization -- can change function name  
+// fnc Game initialization
 function init() {
     //select a random secret word from the array
     activeWord = getRandomWord(secretWords);
-
     let {answerArray} = createAnswerArray(activeWord);
     correctLetters = answerArray;
     wrongGuessCount = 0;
@@ -44,14 +42,13 @@ function init() {
 }
 
 
-
-// Select a random secret word 
+// fnc Select a random secret word 
 function getRandomWord(secretWords) {
     return secretWords[Math.floor(Math.random() * secretWords.length)];
 }
 
 
-// Create an array with underscores to represent the secret word length and keep track of letters remaining
+// fnc Create an array with underscores to represent the secret word length and keep track of letters remaining
 function createAnswerArray(selectedSecret) {
     let answerArray = [];
     for (let i = 0; i < selectedSecret.length; i++) {
@@ -62,24 +59,14 @@ function createAnswerArray(selectedSecret) {
 }
 
 
-// Render the game state -- update the elements to show the following
-function render() {
-    messageBoxElement.textContent = correctLetters.join(" ");
-    availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
-    checkWinner();
-    renderGameOverMessage();
-    renderPlayAgain();
-}
-
-
-// Handle keyboard / letter click 
-// DOM matches() method https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
-// function with parameter buttonPress
+// fnc with parameter buttonPress
+    // Handle keyboard / letter click 
+    // DOM matches() method https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
 function handleLetterClick(buttonPress) {
     if (buttonPress.target.matches('button.alphabet')) {
         clickCountDown--; //decrease clickCountDown by 1 per button click
-        const letter = buttonPress.target.textContent.toLowerCase();
-        buttonPress.target.style.backgroundColor = '#36b98e';
+        const letter = buttonPress.target.textContent.toLowerCase(); //change to lowercase to match array  
+        buttonPress.target.style.backgroundColor = '#36b98e'; //change color fov visual queue that the button as been pressed
         if (activeWord.includes(letter)) {
             for (let i = 0; i < activeWord.length; i++) {
                 if (activeWord[i] === letter && correctLetters[i] === '_') {
@@ -90,33 +77,42 @@ function handleLetterClick(buttonPress) {
         } else {
             wrongGuessCount++; //increase wrongGuessCount by 1 per button click
         }
-        console.log('Letters Remaining: ' + lettersRemaining) //debug check
-        console.log('Click Countdown: ' + clickCountDown) // debug check
-        console.log('Wrong Guess Count: ' + wrongGuessCount) // debug check
+        console.log('Letters Remaining: ' + lettersRemaining) //debug check 1
+        console.log('Click Countdown: ' + clickCountDown) // debug check 2
+        console.log('Wrong Guess Count: ' + wrongGuessCount) // debug check 3
         render();
+        buttonPress.target.disabled = true;
     }
 }
 
 
-// change colors back to OG keyboard color
-function changeKeyboardBack() {
-    const keyboardButtons = document.querySelectorAll('.alphabet');
-        keyboardButtons.forEach(function(button) {
-            button.style.backgroundColor = '#cecab6';
-        });
+// fnc Render the game state -- update the displayed elements on the site to show the following
+function render() {
+    messageBoxElement.textContent = correctLetters.join(" ");
+    availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
+    checkWinner();
+    renderGameOverMessage();
+    renderPlayAgain();
 }
 
-
-// add player score, points are  calculated by # of available guesses left 
-function getScore() {
-    if (winner = true) {
-        score += (maxGuessCount - wrongGuessCount);
-        highScore.innerText ='Score: '+ score;
+// fnc RENDER game over message
+function renderGameOverMessage() {
+    if (winner === true) {
+        messageBoxElement.innerText = 'SHANTAY YOU STAY';
+    } else if (wrongGuessCount >= maxGuessCount) {
+        messageBoxElement.innerText = 'SASHAY AWAY';
     }
 }
 
 
-// Check win conditions -- winner true or false
+// fnc RENDER play again button, ternary expression from connect 4 lesson
+function renderPlayAgain() {
+    playAgainButton.style.visibility = winner || wrongGuessCount >= maxGuessCount ? 'visible' : 'hidden';
+}
+
+
+/* ending the game */
+// fnc Check win conditions -- winner true or false
 function checkWinner() {
     if (lettersRemaining === 0 && wrongGuessCount >= 0) { //not triggering winning statement 
         winner = true;
@@ -127,29 +123,41 @@ function checkWinner() {
 }
 
 
-// Render game over message
-function renderGameOverMessage() {
-    if (winner === true) {
-        messageBoxElement.innerText = 'SHANTAY YOU STAY';
-    } else if (wrongGuessCount >= maxGuessCount) {
-        messageBoxElement.innerText = 'SASHAY AWAY';
+// fnc add player score, points are calculated by # of available guesses left += score 
+function getScore() {
+    if (winner = true) {
+        score += (maxGuessCount - wrongGuessCount);
+        highScore.innerText ='Score: '+ score;
     }
 }
 
 
-// Render play again button, ternary expression from connect 4 lesson
-function renderPlayAgain() {
-    playAgainButton.style.visibility = winner || wrongGuessCount >= maxGuessCount ? 'visible' : 'hidden';
-}
-
 // play again after win condition rendered -- reset Game
 function resetGame() {
     init();
-    changeKeyboardBack()
+    changeKeyboardColorBack()
+    reenableKeyboard()
+}
+
+// fnc change keyboard background color  back to OG color
+function changeKeyboardColorBack() {
+    const keyboardButtons = document.querySelectorAll('.alphabet');
+        keyboardButtons.forEach(function(button) {
+            button.style.backgroundColor = '#cecab6';
+        });
 }
 
 
-// Initialize the game
+// fnc reenable the keyboard button after game is over
+function reenableKeyboard() {
+    const keyboardButtons = document.querySelectorAll('.alphabet');
+        keyboardButtons.forEach(function(button) {
+            button.disabled = false;
+        });
+}
+
+
+// Initialize the game -- start your engines~
 init();
 
 
