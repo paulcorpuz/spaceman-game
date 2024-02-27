@@ -96,10 +96,11 @@ img {
 /* grid row 4*/
 .guess {
   grid-area: guess;
-  font-size: 25px;
+  font-size: 20px;
 }
 .footer {
   grid-area: footer;
+  font-size: 25px;
 }
 #gameOver {
   background-color: #36b98e;

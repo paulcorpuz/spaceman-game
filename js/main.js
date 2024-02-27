@@ -20,7 +20,7 @@ const keyboardButtonElements = document.querySelector('.keyboard');
 const playAgainButton = document.getElementById('gameOver');
 const topResetButton = document.getElementById('resetti');
 const highScore = document.getElementById('score');
-
+const footerElement = document.querySelector('.footer');
 
 /*----- event listeners -----*/
 keyboardButtonElements.addEventListener('click', handleLetterClick);
@@ -59,19 +59,19 @@ function createAnswerArray(selectedSecret) {
 }
 
 
-// fnc with parameter buttonPress
+// fnc with parameter (buttonPress)
     // Handle keyboard / letter click 
     // DOM matches() method https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
 function handleLetterClick(buttonPress) {
     if (buttonPress.target.matches('button.alphabet')) {
         clickCountDown--; //decrease clickCountDown by 1 per button click
-        const letter = buttonPress.target.textContent.toLowerCase(); //change to lowercase to match array  
-        buttonPress.target.style.backgroundColor = '#36b98e'; //change color fov visual queue that the button as been pressed
+        const letter = buttonPress.target.textContent.toLowerCase(); // change to lowercase to match array  
+        buttonPress.target.style.backgroundColor = '#36b98e'; // change color fov visual queue that the button as been pressed
         if (activeWord.includes(letter)) {
             for (let i = 0; i < activeWord.length; i++) {
                 if (activeWord[i] === letter && correctLetters[i] === '_') {
                     correctLetters[i] = letter;
-                    lettersRemaining--;
+                    lettersRemaining--; // decrease letters remaining
                 }
             }
         } else {
@@ -87,13 +87,23 @@ function handleLetterClick(buttonPress) {
 
 
 // fnc Render the game state -- update the displayed elements on the site to show the following
-function render() {
+function render() {    
     messageBoxElement.textContent = correctLetters.join(" ");
     availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
+    if (wrongGuessCount >= 4) {
+        footerElement.textContent = 'The time has come for you to lip-sync... for your life';
+        checkWinner();
+        renderGameOverMessage();
+        renderPlayAgain();
+    }
     checkWinner();
     renderGameOverMessage();
     renderPlayAgain();
 }
+
+// ^ need to update display back to show renderGameOverMessage after
+
+
 
 // fnc RENDER game over message
 function renderGameOverMessage() {
@@ -114,7 +124,7 @@ function renderPlayAgain() {
 /* ending the game */
 // fnc Check win conditions -- winner true or false
 function checkWinner() {
-    if (lettersRemaining === 0 && wrongGuessCount >= 0) { //not triggering winning statement 
+    if (lettersRemaining === 0 && wrongGuessCount >= 0) {
         winner = true;
         getScore();
     } else {
@@ -137,6 +147,11 @@ function resetGame() {
     init();
     changeKeyboardColorBack()
     reenableKeyboard()
+
+// set an empty message 
+
+
+
 }
 
 // fnc change keyboard background color  back to OG color
@@ -189,7 +204,6 @@ limit the # of guesses
     lower guess count by -1
     remove letter from available choices  --> eventlistener click?
 
-
 Congratulate the player on guessing the secret word if complete
 player lost if available guesses === 0 
     show correct word to the player if player loses
@@ -197,17 +211,12 @@ player lost if available guesses === 0
 Play again if winner is declared or lost is declared
 add left over availables guess to score
 
-
 /* icebox idea(s) 
 1. per the game list  = A good icebox feature (optional feature) is to allow the player to choose from categories of words.
 2. maybe have a reset button at the top of the right corner
     If the player wants to reset game {
     treat like playAgainBtn
-
-
-
-
-
+   
 ==========================
 Game plan for functions
 
@@ -252,6 +261,5 @@ Display message if player has won or lost
 Rendering the Play Again Button 
 renderPlayAgain()
 This function toggles the visibility of the play again button based on whether the game is over.
-
 
 */
