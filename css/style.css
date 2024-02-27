@@ -1,8 +1,14 @@
 /* style for all! */
 * {
-    font-family: "Patrick Hand SC", cursive;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "BNCE" 0,
+    "INFM" 0,
+    "SPAC" 0;
+  border: 2px solid #993434;
 }
 
 .container {
@@ -14,9 +20,9 @@
         "spaceman playing playing playing"
         "spaceman keyboard keyboard keyboard"
         "spaceman keyboard  keyboard keyboard"
-        "guess guess footer footer";
+        "guess footer footer footer";
   text-align: center;
-
+  padding: 0px;
 }
 
 
@@ -31,7 +37,7 @@ img {
 /* all the grids */
 /* all the grids */
 .item {
-  border: 2px solid #333;
+  /* border: 2px solid #333; */
   text-align: center;
   font-size: 35px;
   display: flex;
@@ -39,39 +45,22 @@ img {
   align-items: center;
 }
 
-/* each grid section*/
-/* each grid section*/
+
 .title {
   grid-area: title;
   font-weight: bold;
 }
 .reset {
   grid-area: reset;
+  display: flexbox;
+  justify-content: space-between;
+  font-size: 30px;
 }
 #score {
-  padding: 10px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 25px;
 }
-.spaceman {
-  grid-area: spaceman;
-}
-.playing {
-  grid-area: playing;
-} 
-.keyboard {
-  grid-area: keyboard;
-} 
-.guess {
-  grid-area: guess;
-}
-.footer {
-  grid-area: footer;
-  padding: 10px;
-}
-
-
-
-/* restart buttons */
-/* restart buttons */
 #resetti {
   background-color: #36b98e;
   cursor: pointer;
@@ -82,6 +71,41 @@ img {
   padding-left: 15px;
   }
 
+
+/* grid row 2 and 3*/
+.spaceman {
+  grid-area: spaceman;
+}
+.playing {
+  grid-area: playing;
+  font-weight: bold;
+} 
+.keyboard {
+  grid-area: keyboard;
+} 
+.alphabet {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #cecab6;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+}
+
+
+/* grid row 4*/
+.guess {
+  grid-area: guess;
+  font-size: 25px;
+}
+.footer {
+  grid-area: footer;
+  /* padding: 10px; */
+}
 #gameOver {
   background-color: #36b98e;
   cursor: pointer;
@@ -91,20 +115,6 @@ img {
   padding-right: 15px;
   padding-left: 15px;
 }  
-
-.alphabet {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: #cecab6;
-    cursor: pointer;
-    justify-content: center;
-    text-align: center;
-    border-radius: 15px;
-}
-
 
 
 

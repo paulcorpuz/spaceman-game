@@ -1,5 +1,5 @@
 /*----- constants -----*/
-const secretWords = ['pikachu','eevee'];
+const secretWords = ['pikachu','eevee',];
 const maxGuessCount = 5;
 
 
@@ -26,7 +26,7 @@ const highScore = document.getElementById('score');
 /*----- event listeners -----*/
 keyboardButtonElements.addEventListener('click', handleLetterClick);
 playAgainButton.addEventListener('click', resetGame);
-topResetButton.addEventListener('click', resetGame1);
+topResetButton.addEventListener('click', resetGame);
 
 
 
@@ -100,6 +100,14 @@ function handleLetterClick(buttonPress) {
 }
 
 
+// change colors back to OG keyboard color
+function changeKeyboardBack() {
+    const keyboardButtons = document.querySelectorAll('.alphabet');
+        keyboardButtons.forEach(function(button) {
+            button.style.backgroundColor = '#cecab6';
+        });
+}
+
 
 // add player score, points are  calculated by # of available guesses left 
 function getScore() {
@@ -120,6 +128,7 @@ function checkWinner() {
     }
 }
 
+
 // Render game over message
 function renderGameOverMessage() {
     if (winner === true) {
@@ -129,6 +138,7 @@ function renderGameOverMessage() {
     }
 }
 
+
 // Render play again button, ternary expression from connect 4 lesson
 function renderPlayAgain() {
     playAgainButton.style.visibility = winner || wrongGuessCount >= maxGuessCount ? 'visible' : 'hidden';
@@ -137,13 +147,8 @@ function renderPlayAgain() {
 // play again after win condition rendered -- reset Game
 function resetGame() {
     init();
+    changeKeyboardBack()
 }
-
-// top reset game button
-function resetGame1() {
-    init();
-}
-
 
 
 // Initialize the game
