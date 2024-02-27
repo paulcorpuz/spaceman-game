@@ -10,6 +10,7 @@ let wrongGuessCount;
 let clickCountDown;
 let lettersRemaining;
 let winner;
+let score = 0;
 
 
 /*----- cached elements  -----*/
@@ -18,6 +19,7 @@ const availableGuessElement = document.querySelector('.guess');
 const keyboardButtonElements = document.querySelector('.keyboard');
 const playAgainButton = document.getElementById('gameOver');
 const topResetButton = document.getElementById('resetti');
+const highScore = document.getElementById('score');
 
 
 
@@ -42,6 +44,7 @@ function init() {
     winner = null;
     render();
 }
+
 
 
 // Select a random secret word 
@@ -72,12 +75,13 @@ function render() {
 
 
 // Handle keyboard / letter click 
-// DOM matches method https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
-
+// DOM matches() method https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+// function with parameter buttonPress
 function handleLetterClick(buttonPress) {
     if (buttonPress.target.matches('button.alphabet')) {
         clickCountDown--; //decrease clickCountDown by 1 per button click
         const letter = buttonPress.target.textContent.toLowerCase();
+        buttonPress.target.style.backgroundColor = '#36b98e';
         if (activeWord.includes(letter)) {
             for (let i = 0; i < activeWord.length; i++) {
                 if (activeWord[i] === letter && correctLetters[i] === '_') {
@@ -88,26 +92,29 @@ function handleLetterClick(buttonPress) {
         } else {
             wrongGuessCount++; //increase wrongGuessCount by 1 per button click
         }
-        console.log('Letters Remaining: ' + lettersRemaining) // check
-        console.log('Click Count: ' + clickCountDown) // check
-        console.log('Wrong Guess Count: ' + wrongGuessCount) // check
+        console.log('Letters Remaining: ' + lettersRemaining) //debug check
+        console.log('Click Countdown: ' + clickCountDown) // debug check
+        console.log('Wrong Guess Count: ' + wrongGuessCount) // debug check
         render();
     }
 }
 
 
 
-
-
-
-
+// add player score, points are  calculated by # of available guesses left 
+function getScore() {
+    if (winner = true) {
+        score += (maxGuessCount - wrongGuessCount);
+        highScore.innerText ='Score: '+ score;
+    }
+}
 
 
 // Check win conditions -- winner true or false
 function checkWinner() {
     if (lettersRemaining === 0 && wrongGuessCount >= 0) { //not triggering winning statement 
         winner = true;
-
+        getScore();
     } else {
         winner = false;
     }

@@ -1,16 +1,20 @@
+/* style for all! */
+* {
+    font-family: "Patrick Hand SC", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 2fr 1fr;
-
   grid-template-areas:
-        "title title reset"
-        "spaceman playing playing"
-        "spaceman keyboard keyboard"
-        "spaceman keyboard keyboard"
-        "guess footer footer";
-  justify-content: center;
-  align-content: center;
+        "title title title reset"
+        "spaceman playing playing playing"
+        "spaceman keyboard keyboard keyboard"
+        "spaceman keyboard  keyboard keyboard"
+        "guess guess footer footer";
   text-align: center;
 
 }
@@ -20,6 +24,7 @@
 img {
   max-width: 100%;
   height: auto;
+  border: 2px solid #993434;
 }
 
 
@@ -29,22 +34,22 @@ img {
   border: 2px solid #333;
   text-align: center;
   font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* each grid section*/
 /* each grid section*/
 .title {
   grid-area: title;
-  
+  font-weight: bold;
 }
 .reset {
   grid-area: reset;
 }
-#resetti {
-background-color: #36b98e;
-cursor: pointer;
-text-align: center;
+#score {
+  padding: 10px;
 }
 .spaceman {
   grid-area: spaceman;
@@ -53,33 +58,51 @@ text-align: center;
   grid-area: playing;
 } 
 .keyboard {
-grid-area: keyboard;
+  grid-area: keyboard;
 } 
 .guess {
-grid-area: guess;
-
+  grid-area: guess;
 }
 .footer {
-grid-area: footer;
+  grid-area: footer;
+  padding: 10px;
 }
+
+
+
+/* restart buttons */
+/* restart buttons */
+#resetti {
+  background-color: #36b98e;
+  cursor: pointer;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  }
+
 #gameOver {
-background-color: #36b98e;
-cursor: pointer;
-text-align: center;
+  background-color: #36b98e;
+  cursor: pointer;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }  
 
-
-/* keyboard buttons */
-/* keyboard buttons */
 .alphabet {
-width: 40px;
-height: 40px;
-margin: 5px;
-font-size: 20px;
-background-color: #e9d774;
-cursor: pointer;
-justify-content: center;
-text-align: center;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #cecab6;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
 }
 
 
