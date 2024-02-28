@@ -8,13 +8,20 @@
     "BNCE" 0,
     "INFM" 0,
     "SPAC" 0;
-  border: 2px solid #993434;
+  /* border: 2px solid #993434;   */
 }
-/* style for container class */
+body {
+  border-style: dotted;
+  border-radius: 15px;
+  margin: 5%;
+  padding: 0px;
+}
+
+/* style for all the container class */
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1.5fr;
+  grid-template-rows: 1fr 1.5fr 1fr 1fr;
   grid-template-areas:
     "title title title title reset" 
     "spaceman playing playing playing instructions"
@@ -24,41 +31,56 @@
   text-align: center;
   padding: 0px;
 }
-/* all the grd boxes, class item */
+/* style for all the grid boxes, class item */
 .item {
   /* border: 2px solid #333; */
   text-align: center;
-  font-size: 35px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+button {
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+}
+
+
+
+
+
+
+
 
 
 /* grid row 1*/
 .title {
   grid-area: title;
+  font-size: 50px;
   font-weight: bold;
 }
 .reset {
   grid-area: reset;
-  display: flexbox;
-  justify-content: space-between;
-  font-size: 30px;
-}
-#score {
-  padding: 0px;
-  margin: 0px;
-  font-size: 25px;
+  display: grid;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  
 }
 #resetti {
   background-color: #36b98e;
   cursor: pointer;
+  font-size: 30px;
   text-align: center;
-  font-size: 25px;
   border-radius: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+#score {
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
 }
 
 
@@ -74,6 +96,7 @@ img {
 }
 .playing {
   grid-area: playing;
+  font-size: 50px;
   font-weight: bold;
 }
 .keyboard {
@@ -83,7 +106,6 @@ img {
   width: 40px;
   height: 40px;
   margin: 5px;
-  font-size: 25px;
   font-weight: bold;
   background-color: #cecab6;
   cursor: pointer;
@@ -96,36 +118,31 @@ img {
 /* grid row 4*/
 .guess {
   grid-area: guess;
-  font-size: 20px;
+  font-weight: bold;
 }
 .footer {
   grid-area: footer;
-  font-size: 25px;
 }
 #gameOver {
   background-color: #36b98e;
   cursor: pointer;
+  font-size: 30px;
   text-align: center;
-  font-size: 25px;
   border-radius: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
-/* grid COLUMN */
+
+/* grid left COLUMN */
 .instructions {
   grid-area: instructions;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.instructions> p{
   margin: 0px;
-  text-align: center;
 }
-
 ul {
+  font-weight: bold;
   text-align: center;
   list-style-type: none;
   padding: 0px;

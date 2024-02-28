@@ -22,10 +22,13 @@ const topResetButton = document.getElementById('resetti');
 const highScore = document.getElementById('score');
 const footerElement = document.querySelector('.footer');
 
+
+
 /*----- event listeners -----*/
 keyboardButtonElements.addEventListener('click', handleLetterClick);
 playAgainButton.addEventListener('click', resetGame);
 topResetButton.addEventListener('click', resetGame);
+
 
 
 /*----- functions -----*/
@@ -42,7 +45,7 @@ function init() {
 }
 
 
-// fnc Select a random secret word 
+// fnc Select a random secret word from the secretWords array
 function getRandomWord(secretWords) {
     return secretWords[Math.floor(Math.random() * secretWords.length)];
 }
@@ -145,14 +148,13 @@ function getScore() {
 // play again after win condition rendered -- reset Game
 function resetGame() {
     init();
-    changeKeyboardColorBack()
-    reenableKeyboard()
+    changeKeyboardColorBack();
+    reenableKeyboard();
 
 // set an empty message 
 
-
-
 }
+
 
 // fnc change keyboard background color  back to OG color
 function changeKeyboardColorBack() {
