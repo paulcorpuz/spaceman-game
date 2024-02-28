@@ -1,7 +1,15 @@
 /*----- constants -----*/
 // grid row 1
 // grid row 2 amd 3
-const secretWords = ['pikachu','eevee',];
+const secretWords = [
+    'pikachu',
+    'eevee',
+    // 'togepi',
+    // 'staryu',
+    // 'starmie',
+    // 'starthey',
+];
+
 // grid row 4
 const maxGuessCount = 5;
 
@@ -25,6 +33,7 @@ const titleElement = document.querySelector('.title');
 const topResetButton = document.getElementById('resetti');
 const highScore = document.getElementById('score');
 // grid row 2 and 3
+const spaceImage = document.getElementById('image1');
 const messageBoxElement = document.querySelector('.playing');
 const keyboardButtonElements = document.querySelector('.keyboard');
 // grid row 4
@@ -51,6 +60,7 @@ function init() {
     wrongGuessCount = 0; // starting wrong guesses - icebox adding difficulty?
     clickCountDown = maxGuessCount;
     winner = false;
+    spaceImage.src = "https://i.imgur.com/c8L5XNh.png",
     render();
 }
 
@@ -88,37 +98,45 @@ function handleLetterClick(buttonPress) {
                 }
             }
         } else {
-            wrongGuessCount++; //increase wrongGuessCount by 1 per button click
-        }
+            wrongGuessCount++; // increase wrongGuessCount by 1 per button click
+            if (wrongGuessCount === 1) {
+                spaceImage.src = "https://i.imgur.com/HmKbv6T.png";
+            } else if (wrongGuessCount === 2) {
+                spaceImage.src = "https://i.imgur.com/dCDo4om.png";
+            } else if (wrongGuessCount === 3) {
+                spaceImage.src = "https://i.imgur.com/BjgpI1Q.png";
+            } else if (wrongGuessCount === 4) {
+                spaceImage.src = "https://i.imgur.com/8k5oOga.png";
+                titleElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
+                setTimeout(clearFooterMessage, 2000); // Set timeout to clear the message after 2 seconds --- stop light lesson
+            } else if (wrongGuessCount === 5) {
+                spaceImage.src = "https://i.imgur.com/V7dX6qP.png";
+            }
         console.log('Letters Remaining: ' + lettersRemaining) //debug check 1
         console.log('Click Countdown: ' + clickCountDown) // debug check 2
         console.log('Wrong Guess Count: ' + wrongGuessCount) // debug check 3
         render();
         buttonPress.target.disabled = true;
+        }
     }
+}
+
+// fnc to clear footerMessage
+function clearFooterMessage() {
+    titleElement.textContent = 'SPACE MAN'; // Clear the message after 2 seconds
 }
 
 
 // fnc Render the game state -- update the displayed elements on the site to show the following
 function render() {    
+    // messageBoxElement.textContent = correctLetters.join(" ");
     messageBoxElement.textContent = correctLetters.join(" "); //rendering the space between the letters with .join()
     availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
-    // if (wrongGuessCount === 4) {
-    //     footerElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
-    //     checkWinner();
-    //     renderGameOverMessage();
-    //     renderPlayAgain();
-    // }
-/* ^^ commenting out 02.27 afternoon, does not go away fix or drop? */
-/* ^^ commenting out 02.27 afternoon, does not go away fix or drop? */
-    checkWinner();
-    renderGameOverMessage();
-    renderPlayAgain();
-}
-
-// ^^ need to update display back to show renderGameOverMessage after
-// ^^ need to update display back to show renderGameOverMessage after
-
+        checkWinner();
+        renderGameOverMessage();
+        renderPlayAgain();
+    }
+     
 
 // fnc RENDER game over message
 function renderGameOverMessage() {
@@ -163,8 +181,6 @@ function resetGame() {
     changeKeyboardColorBack();
     reenableKeyboard();
 }
-// 02.27 afternoon set an empty message into this function
-// 02.27 afternoon set an empty message into this function
 
 
 // fnc change keyboard background color back to OG color
@@ -193,7 +209,26 @@ init();
 
 
 
-/* Notes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- NOTES
 
 original pseudocode
 
@@ -272,4 +307,4 @@ Rendering the Play Again Button
 renderPlayAgain()
 This function toggles the visibility of the play again button based on whether the game is over.
 
-*/
+-----*/
