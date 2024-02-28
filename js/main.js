@@ -1,46 +1,56 @@
 /*----- constants -----*/
+// grid row 1
+// grid row 2 amd 3
 const secretWords = ['pikachu','eevee',];
+// grid row 4
 const maxGuessCount = 5;
 
 
 /*----- state variables -----*/
+// grid row 1
+let score = 0;
+// grid row 2 and 3
 let activeWord;
 let correctLetters;
+let lettersRemaining;
+//grid row 4
 let wrongGuessCount;
 let clickCountDown;
-let lettersRemaining;
 let winner;
-let score = 0;
 
 
 /*----- cached elements  -----*/
-const messageBoxElement = document.querySelector('.playing');
-const availableGuessElement = document.querySelector('.guess');
-const keyboardButtonElements = document.querySelector('.keyboard');
-const playAgainButton = document.getElementById('gameOver');
+// grid row 1
+const titleElement = document.querySelector('.title');
 const topResetButton = document.getElementById('resetti');
 const highScore = document.getElementById('score');
+// grid row 2 and 3
+const messageBoxElement = document.querySelector('.playing');
+const keyboardButtonElements = document.querySelector('.keyboard');
+// grid row 4
+const availableGuessElement = document.querySelector('.guess');
 const footerElement = document.querySelector('.footer');
-
+const playAgainButton = document.getElementById('gameOver');
 
 
 /*----- event listeners -----*/
-keyboardButtonElements.addEventListener('click', handleLetterClick);
-playAgainButton.addEventListener('click', resetGame);
+// grid row 1
 topResetButton.addEventListener('click', resetGame);
+// grid row 2 and 3
+keyboardButtonElements.addEventListener('click', handleLetterClick);
+// grid row 4
+playAgainButton.addEventListener('click', resetGame);
 
 
-
-/*----- functions -----*/
+/*----- functions -----*/ 
 // fnc Game initialization
 function init() {
-    //select a random secret word from the array
-    activeWord = getRandomWord(secretWords);
-    let {answerArray} = createAnswerArray(activeWord);
+    activeWord = getRandomWord(secretWords);     //select a random secret word from the array
+    let {answerArray} = createAnswerArray(activeWord);  //create the array with underscores
     correctLetters = answerArray;
-    wrongGuessCount = 0;
+    wrongGuessCount = 0; // starting wrong guesses - icebox adding difficulty?
     clickCountDown = maxGuessCount;
-    winner = null;
+    winner = false;
     render();
 }
 
@@ -51,7 +61,7 @@ function getRandomWord(secretWords) {
 }
 
 
-// fnc Create an array with underscores to represent the secret word length and keep track of letters remaining
+// fnc Create an array with underscores to represent the secret word length and keep track of letters remaining. spaces are made in rendor
 function createAnswerArray(selectedSecret) {
     let answerArray = [];
     for (let i = 0; i < selectedSecret.length; i++) {
@@ -91,21 +101,23 @@ function handleLetterClick(buttonPress) {
 
 // fnc Render the game state -- update the displayed elements on the site to show the following
 function render() {    
-    messageBoxElement.textContent = correctLetters.join(" ");
+    messageBoxElement.textContent = correctLetters.join(" "); //rendering the space between the letters with .join()
     availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
-    if (wrongGuessCount >= 4) {
-        footerElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
-        checkWinner();
-        renderGameOverMessage();
-        renderPlayAgain();
-    }
+    // if (wrongGuessCount === 4) {
+    //     footerElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
+    //     checkWinner();
+    //     renderGameOverMessage();
+    //     renderPlayAgain();
+    // }
+/* ^^ commenting out 02.27 afternoon, does not go away fix or drop? */
+/* ^^ commenting out 02.27 afternoon, does not go away fix or drop? */
     checkWinner();
     renderGameOverMessage();
     renderPlayAgain();
 }
 
-// ^ need to update display back to show renderGameOverMessage after
-
+// ^^ need to update display back to show renderGameOverMessage after
+// ^^ need to update display back to show renderGameOverMessage after
 
 
 // fnc RENDER game over message
@@ -125,7 +137,7 @@ function renderPlayAgain() {
 
 
 /* ending the game */
-// fnc Check win conditions -- winner true or false
+// fnc Check win conditions -- winner true or false,
 function checkWinner() {
     if (lettersRemaining === 0 && wrongGuessCount >= 0) {
         winner = true;
@@ -150,13 +162,12 @@ function resetGame() {
     init();
     changeKeyboardColorBack();
     reenableKeyboard();
-
-// set an empty message 
-
 }
+// 02.27 afternoon set an empty message into this function
+// 02.27 afternoon set an empty message into this function
 
 
-// fnc change keyboard background color  back to OG color
+// fnc change keyboard background color back to OG color
 function changeKeyboardColorBack() {
     const keyboardButtons = document.querySelectorAll('.alphabet');
         keyboardButtons.forEach(function(button) {
@@ -182,12 +193,7 @@ init();
 
 
 
-
-
-
-
-
-/* Notes 
+/* Notes
 
 original pseudocode
 
@@ -239,12 +245,14 @@ Rendering - function
 Render()
 updates display to reflect the current state of the game:
 	• secret word, 
+    • spaces between underscores,
 	• remaining guess count, 
 	• the keyboard
 
 Rendering the keyboard: 
 Renderkeyboard()
 generates buttons for each letter of the alphabet
+^ cancel, could not figure out, just sashay all the way, the DOM won this fight, but I will be back or not, idk
 
 
 Handling letter/button clicks:

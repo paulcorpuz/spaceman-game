@@ -10,13 +10,13 @@
     "SPAC" 0;
   /* border: 2px solid #993434;   */
 }
-/* style for the body, aka the huge rectangle */
+/* style for the body, aka the big rectangle */
 body {
   /* border-style: dotted; */
   margin: 5%;
-  padding: 10px;
+  padding: 15px;
   border-radius: 15px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
 }
 /* style for all the container class */
 .container {
@@ -42,10 +42,12 @@ body {
 }
 /* style for all the buttons, class item */
 button {
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
   border: none;
   text-decoration: none;
-  text-align: center;
-  display: inline-block;
 }
 
 
@@ -56,29 +58,26 @@ button {
   font-weight: bold;
   background-color: #cecab6;
   border-radius: 15px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
 }
 .reset {
   grid-area: reset;
   display: grid;
   justify-content: center;
-  row-gap: 10px;
+  row-gap: 5px;
 }
 #resetti {
   background-color: #36b98e;
-  cursor: pointer;
-  font-size: 30px;
-  border-radius: 15px;
   padding-right: 20px;
   padding-left: 20px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
-  
+  border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
 }
 #score {
   font-weight: bold;
   text-align: center;
-  padding: 0px;
   margin: 0px;
+  padding: 0px;
 }
 
 
@@ -91,6 +90,7 @@ img {
   max-width: 100%;
   height: auto;
   border: 2px solid #993434;
+  /* box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5); */
 }
 .playing {
   grid-area: playing;
@@ -99,20 +99,18 @@ img {
 }
 .keyboard {
   grid-area: keyboard;
-  margin: 5px;
 }
 .alphabet {
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  background-color: #cecab6;
   width: 40px;
   height: 40px;
   margin: 5px;
-  /* padding: 2.5px 5px; */
-  font-weight: bold;
-  background-color: #cecab6;
-  cursor: pointer;
-  justify-content: center;
-  text-align: center;
   border-radius: 15px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 7.5px 7.5px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -122,23 +120,24 @@ img {
   text-align: center;
   font-weight: bold;
   background-color: #cecab6;
-  border-radius: 15px;
   margin: 10px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   padding: 10px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
 .footer {
   grid-area: footer;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid #993434;
 }
 #gameOver {
+  font-size: 50px;
   background-color: #36b98e;
-  cursor: pointer;
-  font-size: 30px;
-  text-align: center;
+  padding-right: 25px;
+  padding-left: 25px;
   border-radius: 15px;
-  padding-right: 20px;
-  padding-left: 20px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -152,17 +151,15 @@ img {
 ul {
   font-weight: bold;
   text-align: center;
-  padding: 0px;
   background-color: #cecab6;
-  border-radius: 15px;
   margin: 10px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   padding: 10px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
 li {
   font-size: 20px;
   text-align: center;
-  /* list-style-type: circle; */
   list-style-position: inside;
 }
 /* reference to page layout https://www.digitalocean.com/community/tutorials/css-css-grid-layout-fr-unit */
