@@ -10,17 +10,18 @@
     "SPAC" 0;
   /* border: 2px solid #993434;   */
 }
+/* style for the body, aka the huge rectangle */
 body {
-  border-style: dotted;
-  border-radius: 15px;
+  /* border-style: dotted; */
   margin: 5%;
-  padding: 0px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
-
 /* style for all the container class */
 .container {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 2fr 1fr 1.5fr 1.5fr;
   grid-template-rows: 1fr 1.5fr 1fr 1fr;
   grid-template-areas:
     "title title title title reset" 
@@ -33,13 +34,13 @@ body {
 }
 /* style for all the grid boxes, class item */
 .item {
-  /* border: 2px solid #333; */
   text-align: center;
   font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+/* style for all the buttons, class item */
 button {
   border: none;
   text-decoration: none;
@@ -48,37 +49,34 @@ button {
 }
 
 
-
-
-
-
-
-
-
 /* grid row 1*/
 .title {
   grid-area: title;
-  font-size: 50px;
+  font-size: 55px;
   font-weight: bold;
+  background-color: #cecab6;
+  border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
 .reset {
   grid-area: reset;
   display: grid;
-  justify-content: space-evenly;
-  margin-top: 10px;
-  
+  justify-content: center;
+  row-gap: 10px;
 }
 #resetti {
   background-color: #36b98e;
   cursor: pointer;
   font-size: 30px;
-  text-align: center;
   border-radius: 15px;
   padding-right: 20px;
   padding-left: 20px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+  
 }
 #score {
   font-weight: bold;
+  text-align: center;
   padding: 0px;
   margin: 0px;
 }
@@ -96,29 +94,38 @@ img {
 }
 .playing {
   grid-area: playing;
-  font-size: 50px;
+  font-size: 55px;
   font-weight: bold;
 }
 .keyboard {
   grid-area: keyboard;
+  margin: 5px;
 }
 .alphabet {
   width: 40px;
   height: 40px;
   margin: 5px;
+  /* padding: 2.5px 5px; */
   font-weight: bold;
   background-color: #cecab6;
   cursor: pointer;
   justify-content: center;
   text-align: center;
   border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
 
 
 /* grid row 4*/
 .guess {
   grid-area: guess;
+  text-align: center;
   font-weight: bold;
+  background-color: #cecab6;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
 .footer {
   grid-area: footer;
@@ -131,6 +138,7 @@ img {
   border-radius: 15px;
   padding-right: 20px;
   padding-left: 20px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -144,12 +152,17 @@ img {
 ul {
   font-weight: bold;
   text-align: center;
-  list-style-type: none;
   padding: 0px;
-  margin: 0px;
+  background-color: #cecab6;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
 }
 li {
   font-size: 20px;
   text-align: center;
+  /* list-style-type: circle; */
+  list-style-position: inside;
 }
 /* reference to page layout https://www.digitalocean.com/community/tutorials/css-css-grid-layout-fr-unit */

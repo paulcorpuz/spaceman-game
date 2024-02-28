@@ -94,7 +94,7 @@ function render() {
     messageBoxElement.textContent = correctLetters.join(" ");
     availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
     if (wrongGuessCount >= 4) {
-        footerElement.textContent = 'The time has come for you to lip-sync... for your life';
+        footerElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
         checkWinner();
         renderGameOverMessage();
         renderPlayAgain();
