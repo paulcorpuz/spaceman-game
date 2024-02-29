@@ -2,10 +2,14 @@
 // grid row 1
 // grid row 2 amd 3
 const secretWords = [
-    'pikachu',
-    'eevee',
-    'togepi',
-
+    "actionable",
+    "alignment",
+    "leverage",
+    "optimize",
+    "pivot",
+    "scalable",
+    "streamline",
+    "synergy",
 ];
 // grid row 4
 const maxGuessCount = 5;
@@ -131,7 +135,7 @@ function meltDown(titleElement) {
 function revertTitle() {
     titleElement.style.fontSize= '55px';
     titleElement.style.color = 'black';
-    titleElement.textContent = 'SPACE MAN'; // Clear the message after 2 seconds
+    titleElement.textContent = 'Spaced Out Man'; // Clear the message after 2 seconds
 }
 
 
@@ -149,7 +153,7 @@ function revertTitle() {
 function render() {    
     // messageBoxElement.textContent = correctLetters.join(" ");
     messageBoxElement.textContent = correctLetters.join(" "); //rendering the space between the letters with .join()
-    availableGuessElement.textContent = `Available Guesses: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
+    availableGuessElement.textContent = `Low Hanging Fruit: ${maxGuessCount - wrongGuessCount} out of ${maxGuessCount}`;
         checkWinner();
         renderGameOverMessage();
         renderPlayAgain();
@@ -159,9 +163,9 @@ function render() {
 // fnc RENDER game over message
 function renderGameOverMessage() {
     if (winner === true) {
-        messageBoxElement.innerText = 'SHANTAY YOU STAY';
+        messageBoxElement.innerText = 'Meeting Canceled!';
     } else if (wrongGuessCount >= maxGuessCount) {
-        messageBoxElement.innerText = 'SASHAY AWAY';
+        messageBoxElement.innerText = 'Can we hop on a call?';
     }
 }
 
@@ -221,21 +225,6 @@ function reenableKeyboard() {
 
 // Initialize the game -- start your engines~
 init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

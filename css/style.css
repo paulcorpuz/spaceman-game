@@ -8,7 +8,7 @@
     "BNCE" 0,
     "INFM" 0,
     "SPAC" 0;
-  /* border: 2px solid #993434;   */
+  /* border: 2px solid #993434; */
 }
 /* style for the body, aka the big rectangle */
 body {
@@ -59,6 +59,7 @@ button {
   background-color: #cecab6;
   border-radius: 15px;
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
 }
 .reset {
   grid-area: reset;
@@ -84,13 +85,12 @@ button {
 /* grid row 2 and 3*/
 .spaceman {
   grid-area: spaceman;
+  padding: 5px;
 }
 /* spaceman image */
 img {
   max-width: 100%;
   height: auto;
-  border: 2px solid #993434;
-  /* box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5); */
 }
 .playing {
   grid-area: playing;
@@ -117,7 +117,7 @@ img {
 /* grid row 4*/
 .guess {
   grid-area: guess;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   font-weight: bold;
   background-color: #cecab6;
@@ -130,10 +130,9 @@ img {
   grid-area: footer;
   text-align: center;
   font-weight: bold;
-  border: 2px solid #993434;
 }
 #gameOver {
-  font-size: 50px;
+  font-size: 40px;
   background-color: #36b98e;
   padding-right: 25px;
   padding-left: 25px;
