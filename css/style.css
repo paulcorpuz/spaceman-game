@@ -8,7 +8,6 @@
     "BNCE" 0,
     "INFM" 0,
     "SPAC" 0;
-  /* border: 2px solid #993434; */
 }
 /* style for the body, aka the big rectangle */
 body {
@@ -56,7 +55,7 @@ button {
   grid-area: title;
   font-size: 55px;
   font-weight: bold;
-  background-color: #cecab6;
+  background-color: #f8f5df;
   border-radius: 15px;
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   margin-bottom: 10px;
@@ -68,7 +67,7 @@ button {
   row-gap: 5px;
 }
 #resetti {
-  background-color: #36b98e;
+  background-color: #3cb0a5;
   padding-right: 20px;
   padding-left: 20px;
   border-radius: 15px;
@@ -105,7 +104,7 @@ img {
   font-weight: bold;
   text-align: center;
   justify-content: center;
-  background-color: #cecab6;
+  background-color: #f8f5df;
   width: 40px;
   height: 40px;
   margin: 5px;
@@ -120,7 +119,7 @@ img {
   font-size: 25px;
   text-align: center;
   font-weight: bold;
-  background-color: #cecab6;
+  background-color: #f8f5df;
   margin: 10px;
   border-radius: 15px;
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
@@ -133,7 +132,7 @@ img {
 }
 #gameOver {
   font-size: 40px;
-  background-color: #36b98e;
+  background-color: #3cb0a5;
   padding-right: 25px;
   padding-left: 25px;
   border-radius: 15px;
@@ -151,7 +150,7 @@ img {
 ul {
   font-weight: bold;
   text-align: center;
-  background-color: #cecab6;
+  background-color: #f8f5df;
   margin: 10px;
   border-radius: 15px;
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
@@ -163,3 +162,14 @@ li {
   list-style-position: inside;
 }
 /* reference to page layout https://www.digitalocean.com/community/tutorials/css-css-grid-layout-fr-unit */
+
+
+
+
+
+/* --- Hex color palette
+menus: #f8f5e0
+buttons: #3cb0a5
+red accent: #fd4f56
+black accent: #000000
+*/

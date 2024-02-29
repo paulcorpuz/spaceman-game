@@ -2,6 +2,7 @@
 // grid row 1
 // grid row 2 amd 3
 const secretWords = [
+    "accountable",
     "actionable",
     "alignment",
     "leverage",
@@ -55,7 +56,7 @@ playAgainButton.addEventListener('click', resetGame);
 /*----- functions -----*/ 
 // fnc Game initialization
 function init() {
-    activeWord = getRandomWord(secretWords);     //select a random secret word from the array
+    activeWord = getRandomWord(secretWords);     //select a random secret word from the array  -- secret word is activeWord
     let {answerArray} = createAnswerArray(activeWord);  //create the array with underscores
     correctLetters = answerArray;
     wrongGuessCount = 0; // starting wrong guesses - icebox adding difficulty?
@@ -63,6 +64,7 @@ function init() {
     winner = false;
     spaceImage.src = "img/spaceMan1.png",
     render();
+    console.log(activeWord); //debug check on activeWord
 }
 
 
@@ -90,7 +92,7 @@ function handleLetterClick(buttonPress) {
     if (buttonPress.target.matches('button.alphabet')) {
         clickCountDown--; //decrease clickCountDown by 1 per button click
         const letter = buttonPress.target.textContent.toLowerCase(); // change to lowercase to match array  
-        buttonPress.target.style.backgroundColor = '#36b98e'; // change color fov visual queue that the button as been pressed
+        buttonPress.target.style.backgroundColor = '#3cb0a5'; // change color fov visual queue that the button as been pressed
         if (activeWord.includes(letter)) {
             for (let i = 0; i < activeWord.length; i++) {
                 if (activeWord[i] === letter && correctLetters[i] === '_') {
@@ -108,8 +110,8 @@ function handleLetterClick(buttonPress) {
                 spaceImage.src = "img/spaceMan4.png";
             } else if (wrongGuessCount === 4) {
                 spaceImage.src = "img/spaceMan5.png";
-                meltDown(titleElement)
-                setTimeout(revertTitle, 4000); // Set timeout to clear the message after 2 seconds --- stop light lesson
+                lastGuessWarning(titleElement)
+                setTimeout(revertTitle, 4000); // Set timeout to clear the message after 3 seconds --- check stoplight lesson
             } else if (wrongGuessCount === 5) {
                 spaceImage.src = "img/spaceMan6.png";
             }
@@ -122,31 +124,20 @@ function handleLetterClick(buttonPress) {
     }
 }
 
-
-function meltDown(titleElement) {
-    titleElement.style.fontSize = '25px';
-    titleElement.style.color = 'red';
-    titleElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
+// fnc to change color of elements at one guess remaining
+function lastGuessWarning(titleElement) {
+    titleElement.style.fontSize = '50px';
+    titleElement.style.color = '#fd4f56';
+    titleElement.textContent = 'Hi, are you online?';
 }
 
 
-
-// fnc to change back title element
+// fnc to change title Element back to original
 function revertTitle() {
     titleElement.style.fontSize= '55px';
-    titleElement.style.color = 'black';
+    titleElement.style.color = '#000000';
     titleElement.textContent = 'Spaced Out Man'; // Clear the message after 2 seconds
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // fnc Render the game state -- update the displayed elements on the site to show the following
@@ -163,7 +154,7 @@ function render() {
 // fnc RENDER game over message
 function renderGameOverMessage() {
     if (winner === true) {
-        messageBoxElement.innerText = 'Meeting Canceled!';
+        messageBoxElement.innerText = 'Meeting Canceled! Enjoy your nap!';
     } else if (wrongGuessCount >= maxGuessCount) {
         messageBoxElement.innerText = 'Can we hop on a call?';
     }
@@ -209,7 +200,7 @@ function resetGame() {
 function changeKeyboardColorBack() {
     const keyboardButtons = document.querySelectorAll('.alphabet');
         keyboardButtons.forEach(function(button) {
-            button.style.backgroundColor = '#cecab6';
+            button.style.backgroundColor = '#f8f5e0';
         });
 }
 
@@ -225,6 +216,21 @@ function reenableKeyboard() {
 
 // Initialize the game -- start your engines~
 init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
