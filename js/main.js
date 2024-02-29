@@ -4,12 +4,9 @@
 const secretWords = [
     'pikachu',
     'eevee',
-    // 'togepi',
-    // 'staryu',
-    // 'starmie',
-    // 'starthey',
-];
+    'togepi',
 
+];
 // grid row 4
 const maxGuessCount = 5;
 
@@ -60,7 +57,7 @@ function init() {
     wrongGuessCount = 0; // starting wrong guesses - icebox adding difficulty?
     clickCountDown = maxGuessCount;
     winner = false;
-    spaceImage.src = "https://i.imgur.com/c8L5XNh.png",
+    spaceImage.src = "img/spaceMan1.png",
     render();
 }
 
@@ -82,7 +79,7 @@ function createAnswerArray(selectedSecret) {
 }
 
 
-// fnc with parameter (buttonPress)
+// fnc with parameter (buttonPress) -- m o t h e r
     // Handle keyboard / letter click 
     // DOM matches() method https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
 function handleLetterClick(buttonPress) {
@@ -100,31 +97,52 @@ function handleLetterClick(buttonPress) {
         } else {
             wrongGuessCount++; // increase wrongGuessCount by 1 per button click
             if (wrongGuessCount === 1) {
-                spaceImage.src = "https://i.imgur.com/HmKbv6T.png";
+                spaceImage.src = "img/spaceMan2.png";
             } else if (wrongGuessCount === 2) {
-                spaceImage.src = "https://i.imgur.com/dCDo4om.png";
+                spaceImage.src = "img/spaceMan3.png";
             } else if (wrongGuessCount === 3) {
-                spaceImage.src = "https://i.imgur.com/BjgpI1Q.png";
+                spaceImage.src = "img/spaceMan4.png";
             } else if (wrongGuessCount === 4) {
-                spaceImage.src = "https://i.imgur.com/8k5oOga.png";
-                titleElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
-                setTimeout(clearFooterMessage, 2000); // Set timeout to clear the message after 2 seconds --- stop light lesson
+                spaceImage.src = "img/spaceMan5.png";
+                meltDown(titleElement)
+                setTimeout(revertTitle, 4000); // Set timeout to clear the message after 2 seconds --- stop light lesson
             } else if (wrongGuessCount === 5) {
-                spaceImage.src = "https://i.imgur.com/V7dX6qP.png";
+                spaceImage.src = "img/spaceMan6.png";
             }
-        console.log('Letters Remaining: ' + lettersRemaining) //debug check 1
-        console.log('Click Countdown: ' + clickCountDown) // debug check 2
-        console.log('Wrong Guess Count: ' + wrongGuessCount) // debug check 3
-        render();
-        buttonPress.target.disabled = true;
         }
+        console.log('Letters Remaining: ' + lettersRemaining); //debug check 1
+        console.log('Click Countdown: ' + clickCountDown); // debug check 2
+        console.log('Wrong Guess Count: ' + wrongGuessCount); // debug check 3
+        buttonPress.target.disabled = true;
+        render();        
     }
 }
 
-// fnc to clear footerMessage
-function clearFooterMessage() {
+
+function meltDown(titleElement) {
+    titleElement.style.fontSize = '25px';
+    titleElement.style.color = 'red';
+    titleElement.textContent = 'The time has come for you to lip-sync... FOR YOUR LIFE!';
+}
+
+
+
+// fnc to change back title element
+function revertTitle() {
+    titleElement.style.fontSize= '55px';
+    titleElement.style.color = 'black';
     titleElement.textContent = 'SPACE MAN'; // Clear the message after 2 seconds
 }
+
+
+
+
+
+
+
+
+
+
 
 
 // fnc Render the game state -- update the displayed elements on the site to show the following
