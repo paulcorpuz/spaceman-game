@@ -4,29 +4,31 @@
 
 </div>
 
-<div id="description" align="center">
 
-# Spaced Out Man
+📝 Spaced Out Man: A Space Man Game
+============
+'Spaced Out man' is fun twist on the classic children's game, 'Space Man' filled with work puns. Players aim to guess the hidden word selected at random by the CPU. Are you ready to move the needle?
+
+<div id="description" align="center">
 
 ### [CLICK TO PLAY](https://paulcorpuz.github.io/spaceman-game/)
 
-##### Paul Corpuz
 <a href='https://www.linkedin.com/in/paulcorpuzseattle/' target="_blank"><img alt='LinkedIn' src='https://img.shields.io/badge/Paul_Corpuz-100000?style=flat&logo=LinkedIn&logoColor=white&labelColor=0077b5&color=0077b5'/></a>
 
 </div>
 
 
-📝 Description
+🎮 Game Overview
 ============
-Project One is a Space Man game inspired by the classic children's game. Players aim to guess the hidden word selected at random by the CPU.
+'Spaced Out Man' is a web-based game developed using HTML, CSS, and Vanilla JavaScript 🍦
 
-<details open>
-  <summary>How to Play</summary>
-    1. Using the on-screen keyboard, the player will guess a letter of the word.
-    2. If a guessed letter is in the word, it's revealed in its correct position.
-    3. Incorrect guesses result in the player losing a guess attempt.
-    4. The game ends when the word is guessed correctly or the player runs out of guess attempts.
-</details>
+### How to Play:
+
+  1. Using the on-screen keyboard, the player will guess a letter of the word.
+  2. If a guessed letter is in the word, it's revealed in its correct position.
+  3. Incorrect guesses result in the player losing a guess attempt. ('Low Hanging Fruit')
+  4. The game ends when the word is guessed correctly or the player runs out of guess attempts.
+  5. If the player guesses the correct word, points are awarded based off the number of remaining guesses ('Metrics')
 
 
 💻 Technologies Used
@@ -42,60 +44,32 @@ Project One is a Space Man game inspired by the classic children's game. Players
 
 📸 Screenshots
 ==============
-<div id="screenshots" align="center">
+### Wireframe
+<img src="img/wireframe1.png" alt="wireframe1" width="350" height="auto">
 
-**Original Wireframe**
+### Mid-Development
 
-<img src="img/wireframe1.png" alt="wireframe1" width="300" height="auto">
-
-**Mid-Development**
-
-<img src="img/wireframe2.png" alt="wireframe2" width="300" height="auto">
-  
-<img src="img/wireframe3.png" alt="wireframe3" width="300" height="auto">
-
-**Deployed Demo**
-
-</div>
+<img src="img/wireframe2.png" alt="wireframe2" width="350" height="auto">
 
 
-
+### Deployed
+<img src="img/finalFrame1.png" alt="wireframe3" width="350" height="auto">
+<img src="img/finalFrame2.png" alt="wireframe3" width="350" height="auto">
 
 
 🔧 Getting Started 
 ============
-<details>
-  <summary>Planning and Wireframe</summary>
-      <p>1. WIP</p>
-      <p>2. WIP</p>
-      <p>3. WIP</p>
-</details>
 
-<details>
-  <summary>Applied Learning - JS DOM Manipulation</summary>
-      1. WIP
-      2. WIP
-      3. WIP
-</details>
+### Prerequisites
+Ensure you have a modern web browser installed on your device, such as Google Chrome, Firefox, Safari, or Edge.
 
-<details>
-    <summary>Challenges and Roadblocks</summary>
-        1. WIP
-        2. WIP
-        3. WIP
-</details>
-
-<details>
-  <summary>Design</summary>
-      1. WIP
-      2. WIP
-      3. WIP
-</details>
+### Installation
+No installation required, however, internet access is necessary.
 
 
 ⏭️ Next Steps
 ============
-- [ ] Adding difficulty levels and word phrases.
+- [ ] Optimize for mobile screens.
 - [ ] Make the game more dynamic with animation.
-- [ ] Optimize for mobile screens
-- [ ] Ability to share high score on social media
+- [ ] Adding difficulty levels and word-phrases.
+- [ ] Ability to share high score on social media.
