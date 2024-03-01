@@ -54,6 +54,9 @@ const keyboardButtonElements = document.querySelector('.keyboard');
 const availableGuessElement = document.querySelector('.guess');
 const footerElement = document.querySelector('.footer');
 const playAgainButton = document.getElementById('gameOver');
+// audio - icebox
+const slackKnock = new Audio('img/slackKnock.m4a');
+const slackBoop = new Audio('img/slackBoop.m4a');
 
 /*----- event listeners -----*/
 // grid row 1
@@ -72,7 +75,7 @@ function init() {
     wrongGuessCount = 0; // starting wrong guesses - icebox adding difficulty?
     clickCountDown = maxGuessCount;
     winner = false;
-    spaceImage.src = "img/spaceMan1.png",
+    spaceImage.src = 'img/spaceMan1.png'
     revertMessageBoxElement();
     render();
     console.log(activeWord); //debug check on activeWord
@@ -110,23 +113,30 @@ function handleLetterClick(buttonPress) {
         } else {
             wrongGuessCount++; // increase wrongGuessCount by 1 per button click
             if (wrongGuessCount === 1) { //change image per wrongGuessCount
-                spaceImage.src = "img/spaceMan2.png";
+                spaceImage.src = 'img/spaceMan2.png';
+                slackKnock.volume = 0.6; 
+                slackKnock.play();
             } else if (wrongGuessCount === 2) {
-                spaceImage.src = "img/spaceMan3.png";
+                spaceImage.src = 'img/spaceMan3.png';
+                slackKnock.volume = 0.6; 
+                slackKnock.play();
             } else if (wrongGuessCount === 3) {
-                spaceImage.src = "img/spaceMan4.png";
+                spaceImage.src = 'img/spaceMan4.png';
+                slackKnock.volume = 0.6; 
+                slackKnock.play();
             } else if (wrongGuessCount === 4) {
-                spaceImage.src = "img/spaceMan5.png";
+                spaceImage.src = 'img/spaceMan5.png';
+                slackKnock.volume = 0.6; 
+                slackKnock.play();
                 lastGuessWarning(titleElement)
                 setTimeout(revertTitle, 4000); // Set timeout to clear the message after 3 seconds --- check stoplight lesson
             } else if (wrongGuessCount === 5) {
                 spaceImage.src = "img/spaceMan6.png";
+                slackBoop.volume = 0.6; 
+                slackBoop.play();
             }
         }
-        console.log('Letters Remaining: ' + lettersRemaining); //debug check 1
-        console.log('Click Countdown: ' + clickCountDown); // debug check 2
-        console.log('Wrong Guess Count: ' + wrongGuessCount); // debug check 3
-        buttonPress.target.disabled = true; // disable the keyboard from being used again.
+        buttonPress.target.disabled = true; // disable the keyboard buttons from being used again.
         render();        
     }
 }
@@ -136,7 +146,7 @@ function handleLetterClick(buttonPress) {
 function lastGuessWarning(titleElement) {
     titleElement.style.fontSize = '55px';
     titleElement.style.color = '#fd4f56'; // style.color red
-    titleElement.textContent = 'Hey, are you still online?';
+    titleElement.textContent = 'Hey, did you get my slack?';
 }
 
 
@@ -172,11 +182,13 @@ function renderGameOverMessage() {
     }
 }
 
+
 // fnc to change messageBoxElement back to OG style/content
 function revertMessageBoxElement() {
     messageBoxElement.style.fontSize= '55px';
     messageBoxElement.style.color = '#000000';
 }
+
 
 // fnc RENDER play again button, ternary expression
 function renderPlayAgain() {
