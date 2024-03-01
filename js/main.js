@@ -86,7 +86,7 @@ function getRandomWord(secretWords) {
     return secretWords[Math.floor(Math.random() * secretWords.length)];
 }
 
-// fnc create an array with underscores to represent the secret word length and keep track of letters remaining. spaces are made in render fnc
+// fnc create an array with underscores to represent the secret word length and keep track of letters remaining. spaces are made in init fnc
 function createAnswerArray(selectedSecret) {
     let answerArray = [];
     for (let i = 0; i < selectedSecret.length; i++) {
@@ -103,8 +103,8 @@ function handleLetterClick(buttonPress) {
         clickCountDown--; //decrease clickCountDown by 1 per button click
         const letter = buttonPress.target.textContent.toLowerCase(); // change to lowercase to match array  
         buttonPress.target.style.backgroundColor = '#3cb0a5'; // change color for visual queue that the button as been pressed
-        if (activeWord.includes(letter)) {
-            for (let i = 0; i < activeWord.length; i++) {
+        if (activeWord.includes(letter)) { //iterate through the activeWord array updates the correctLetters array by index where the correct letter
+            for (let i = 0; i < activeWord.length; i++) { 
                 if (activeWord[i] === letter && correctLetters[i] === '_') {
                     correctLetters[i] = letter;
                     lettersRemaining--; // decrease letters remaining of activeWord
