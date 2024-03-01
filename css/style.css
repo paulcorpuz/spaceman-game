@@ -161,15 +161,19 @@ li {
   text-align: center;
   list-style-position: inside;
 }
-/* reference to page layout https://www.digitalocean.com/community/tutorials/css-css-grid-layout-fr-unit */
+
+
+/* @media (max-width: 420px)  {
+} */
 
 
 
 
 
-/* --- Hex color palette
-menus: #f8f5e0
-buttons: #3cb0a5
-red accent: #fd4f56
-black accent: #000000
-*/
+
+
+
+
+
+
+

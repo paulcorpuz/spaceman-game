@@ -31,12 +31,12 @@ Project One is a Space Man game inspired by the classic children's game. Players
 
 💻 Technologies Used
 ==============
-  ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
-  ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
-  ![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
-  ![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown)
-  ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
-  ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
+![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
+![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
+![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown)
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
+![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 <a target="_blank"><img alt='Clip Studio Paint' src='https://img.shields.io/badge/Clip_Studio Paint-100000?style=flat&logo=Clip Studio Paint&logoColor=white&labelColor=333333&color=333333'/></a>
 
 
@@ -44,28 +44,31 @@ Project One is a Space Man game inspired by the classic children's game. Players
 ==============
 <div id="screenshots" align="center">
 
-Original Wireframe
+**Original Wireframe**
 
-  <img src="img/wireframe1.png" alt="wireframe1" width="300" height="auto">
+<img src="img/wireframe1.png" alt="wireframe1" width="300" height="auto">
 
-Mid-development
+**Mid-Development**
 
-  <img src="img/wireframe2.png" alt="wireframe2" width="300" height="auto">
+<img src="img/wireframe2.png" alt="wireframe2" width="300" height="auto">
   
-  <img src="img/wireframe3.png" alt="wireframe3" width="300" height="auto">
+<img src="img/wireframe3.png" alt="wireframe3" width="300" height="auto">
 
-Deployed Demo
+**Deployed Demo**
 
 </div>
+
+
+
 
 
 🔧 Getting Started 
 ============
 <details>
   <summary>Planning and Wireframe</summary>
-      1. WIP
-      2. WIP
-      3. WIP
+      <p>1. WIP</p>
+      <p>2. WIP</p>
+      <p>3. WIP</p>
 </details>
 
 <details>
